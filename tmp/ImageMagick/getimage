@@ -1,0 +1,22 @@
+# xbm
+push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://127.0.0.0/oops.jpg"|"`id`)'
+pop graphic-context
+#define xlogo_width 200
+#define xlogo_height 200
+
+# ps
+%!PS
+userdict /setpagedevice undef
+save
+legal
+{ null restore } stopped { pop } if
+{ legal } stopped { pop } if
+restore
+mark /OutputFile (%pipe%id) currentdevice putdeviceprops
+
+/test {
+#define xlogo64_width 64
+#define xlogo64_height 64
+}
