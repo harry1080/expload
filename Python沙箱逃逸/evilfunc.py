@@ -42,4 +42,4 @@ for result in results:
     if results[result]['flag']:
         print(f'[+]{result}')
         for r in results[result]['result']:
-            print('  [-]' + r + ': ' + results[result]['result'][r])
+            print(f"  [-]{r}: {results[result]['result'][r]}")
