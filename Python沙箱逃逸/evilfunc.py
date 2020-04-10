@@ -52,7 +52,7 @@ if (sys.version_info[0]) == 3:
 else:
     modules = modules2
 
-# 导入了危险标准库的派生类
+# 导入了危险模块的标准库
 for module in modules:
     risk_modules[module] = []
     try:
@@ -67,6 +67,7 @@ for module in modules:
 
 print('------------------------------ 思路三 ------------------------------')
 
+# 导入了危险标准库的派生类
 for i, submodules in subclasses.items():
     for submodule in submodules:
         for risk_module in risk_modules.keys():
