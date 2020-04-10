@@ -1,7 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # coding: utf-8
-# Origin: Macr0phag3 in 2019-05-07 19:46:12
-# Edit: hosch3n in 2020-04-09 00:47:30
+# Rewrite by hosch3n in 2020-04-10
+# Origin by Macr0phag3 in 2019-05-07
+
+import sys
 
 # 删掉 this, antigravity 库
 
@@ -15,36 +17,58 @@ modules3 = [
     'AptUrl', 'hmac', 'requests_unixsocket', 'CommandNotFound', 'apport', 'hpmudext', 'resource', 'Crypto', 'apport_python_hook', 'html', 'rlcompleter', 'DistUpgrade', 'apt', 'http', 'runpy', 'HweSupportStatus', 'apt_inst', 'httplib2', 'scanext', 'LanguageSelector', 'apt_pkg', 'idna', 'sched', 'NvidiaDetector', 'aptdaemon', 'imaplib', 'secrets', 'PIL', 'aptsources', 'imghdr', 'secretstorage', 'Quirks', 'argparse', 'imp', 'select', 'UbuntuDrivers', 'array', 'importlib', 'selectors', 'UbuntuSystemService', 'asn1crypto', 'inspect', 'shelve', 'UpdateManager', 'ast', 'io', 'shlex', '__future__', 'asynchat', 'ipaddress', 'shutil', '_ast', 'asyncio', 'itertools', 'signal', '_asyncio', 'asyncore', 'janitor', 'simplejson', '_bisect', 'atexit', 'json', 'site', '_blake2', 'audioop', 'keyring', 'sitecustomize', '_bootlocale', 'base64', 'keyword', 'six', '_bz2', 'bdb', 'language_support_pkgs', 'smtpd', '_cffi_backend', 'binascii', 'launchpadlib', 'smtplib', '_codecs', 'binhex', 'linecache', 'sndhdr', '_codecs_cn', 'bisect', 'locale', 'socket', '_codecs_hk', 'brlapi', 'logging', 'socketserver', '_codecs_iso2022', 'builtins', 'louis', 'softwareproperties', '_codecs_jp', 'bz2', 'lsb_release', 'speechd', '_codecs_kr', 'cProfile', 'lzma', 'speechd_config', '_codecs_tw', 'cairo', 'macaroonbakery', 'spwd', '_collections', 'calendar', 'macpath', 'sqlite3', '_collections_abc', 'certifi', 'macurl2path', 'sre_compile', '_compat_pickle', 'cgi', 'mailbox', 'sre_constants', '_compression', 'cgitb', 'mailcap', 'sre_parse', '_crypt', 'chardet', 'mako', 'ssl', '_csv', 'chunk', 'markupsafe', 'stat', '_ctypes', 'cmath', 'marshal', 'statistics', '_ctypes_test', 'cmd', 'math', 'string', '_curses', 'code', 'mimetypes', 'stringprep', '_curses_panel', 'codecs', 'mmap', 'struct', '_datetime', 'codeop', 'modual_test', 'subprocess', '_dbm', 'collections', 'modulefinder', 'sunau', '_dbus_bindings', 'colorsys', 'multiprocessing', 'symbol', '_dbus_glib_bindings', 'compileall', 'nacl', 'symtable', '_decimal', 'concurrent', 'netrc', 'sys', '_dummy_thread', 'configparser', 'nis', 'sysconfig', '_elementtree', 'contextlib', 'nntplib', 'syslog', '_functools', 'copy', 'ntpath', 'systemd', '_gdbm', 'copyreg', 'nturl2path', 'tabnanny', '_hashlib', 'crypt', 'numbers', 'tarfile', '_heapq', 'cryptography', 'oauth', 'telnetlib', '_imp', 'csv', 'olefile', 'tempfile', '_io', 'ctypes', 'opcode', 'termios', '_json', 'cups', 'operator', 'test', '_locale', 'cupsext', 'optparse', 'textwrap', '_lsprof', 'cupshelpers', 'orca', '_lzma', 'curses', 'os', 'threading', '_markupbase', 'datetime', 'ossaudiodev', 'time', '_md5', 'dbm', 'parser', 'timeit', '_multibytecodec', 'dbus', 'pathlib', 'token', '_multiprocessing', 'deb822', 'pcardext', 'tokenize', '_opcode', 'debconf', 'pdb', 'trace', '_operator', 'debian', 'pexpect', 'traceback', '_osx_support', 'debian_bundle', 'pickle', 'tracemalloc', '_pickle', 'decimal', 'pickletools', 'tty', '_posixsubprocess', 'defer', 'pipes', 'turtle', '_pydecimal', 'difflib', 'pkg_resources', 'types', '_pyio', 'dis', 'pkgutil', 'typing', '_random', 'distro_info', 'platform', 'ufw', '_sha1', 'distro_info_test', 'plistlib', 'unicodedata', '_sha256', 'distutils', 'poplib', 'unittest', '_sha3', 'doctest', 'posix', 'urllib', '_sha512', 'dummy_threading', 'posixpath', 'urllib3', '_signal', 'email', 'pprint', 'usbcreator', '_sitebuiltins', 'encodings', 'problem_report', 'uu', '_socket', 'enum', 'profile', 'uuid', '_sqlite3', 'errno', 'pstats', 'venv', '_sre', 'faulthandler', 'pty', 'wadllib', '_ssl', 'fcntl', 'ptyprocess', 'warnings', '_stat', 'filecmp', 'pwd', 'wave', '_string', 'fileinput', 'py_compile', 'weakref', '_strptime', 'fnmatch', 'pyatspi', 'webbrowser', '_struct', 'formatter', 'pyclbr', 'wsgiref', '_symtable', 'fractions', 'pydoc', 'xdg', '_sysconfigdata_m_linux_x86_64-linux-gnu', 'ftplib', 'pydoc_data', 'xdrlib', '_testbuffer', 'functools', 'pyexpat', 'xkit', '_testcapi', 'gc', 'pygtkcompat', 'xml', '_testimportmultiple', 'genericpath', 'pymacaroons', 'xmlrpc', '_testmultiphase', 'getopt', 'pyrfc3339', 'xxlimited', '_thread', 'getpass', 'pytz', 'xxsubtype', '_threading_local', 'gettext', 'queue', 'yaml', '_tracemalloc', 'gi', 'quopri', 'zipapp', '_warnings', 'glob', 'random', 'zipfile', '_weakref', 'grp', 're', 'zipimport', '_weakrefset', 'gtweak', 'readline', 'zlib', '_yaml', 'gzip', 'reportlab', 'zope', 'abc', 'hashlib', 'reprlib', 'aifc', 'heapq'
 ]
 
-# 危险方法
-methods = ['sys', 'os', 'subprocess', 'platform', 'commands', 'timeit', 'importlib', 'spawn', '__builtins__']
+# 危险模块
+methods = ['sys', 'os', 'subprocess', 'platform', 'commands', 'timeit', 'importlib', 'pickle', 'pty', '__builtins__', 'file', 'linecache', 'types']
 
-# 最终结果
-evils = {}
+# object的派生类
+subclasses = {}
 
-for module in modules3:
-    evils[module] = {
-        'flag': 0,
-        'methods': {} # evils字典中，module键的值为字典，这个字典中methods键的值为字典
-    }
+# 危险标准库模块
+risk_modules = {}
 
+# 遍历派生类并获取模块
+for i in range(0, len(object.__subclasses__())):
     try:
-        m = __import__(module)      # 导入模块
-        attrs = dir(m)              # 获取属性与方法
-        for method in methods:
-            if method in attrs:     # 若存在危险方法
-                evils[module]['flag'] = 1
-                exist = 'yes'
-            else:
-                exist = 'no'
-
-            # 最终结果 的 module键 中 methods键 中 method键 的值
-            evils[module]['methods'][method] = exist
-
+        subclasses[i] = object.__subclasses__()[i].__init__.__globals__.keys()
     except Exception as e:
-        print(e)
+        #print(e)
+        pass
 
-for module in evils:
-    if evils[module]['flag']:
-        print(f'[+]{module}')
-        for method in evils[module]['methods']:
-            print(f"  [-]{method}: {evils[module]['methods'][method]}"
+print('------------------------------ 思路二 ------------------------------')
+
+# 导入了危险模块的派生类
+for i, submodules in subclasses.items():
+    for submodule in submodules:
+        for method in methods:
+            if method == submodule:
+                print(f"object.__subclasses__()[{i}].__init__.__globals__['{method}']")
+
+print('------------------------------ 缓冲区 ------------------------------')
+
+# 判断Python版本
+if (sys.version_info[0]) == 3:
+    modules = modules3
+else:
+    modules = modules2
+
+# 导入了危险标准库的派生类
+for module in modules:
+    risk_modules[module] = []
+    try:
+        m = __import__(module)  # 导入模块
+        attrs = dir(m)          # 获取属性与方法
+        for method in methods:
+            if method in attrs: # 若存在危险模块
+                risk_modules[module].append(method)
+    except Exception as e:
+        #print(e)
+        pass
+
+print('------------------------------ 思路三 ------------------------------')
+
+for i, submodules in subclasses.items():
+    for submodule in submodules:
+        for risk_module in risk_modules.keys():
+            if risk_module == submodule:
+                for method in risk_modules[risk_module]:
+                    print(f"object.__subclasses__()[{i}].__init__.__globals__['{risk_module}'].__dict__['{method}']")
