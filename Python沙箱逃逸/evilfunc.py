@@ -41,7 +41,8 @@ for i, submodules in subclasses.items():
     for submodule in submodules:
         for method in methods:
             if method == submodule:
-                print(f"object.__subclasses__()[{i}].__init__.__globals__['{method}']")
+                #print(f"object.__subclasses__()[{i}].__init__.__globals__['{method}']")
+                print("object.__subclasses__()[{i}].__init__.__globals__['{method}']".format(i=i, method=method))
 
 print('------------------------------ 缓冲区 ------------------------------')
 
@@ -71,4 +72,5 @@ for i, submodules in subclasses.items():
         for risk_module in risk_modules.keys():
             if risk_module == submodule:
                 for method in risk_modules[risk_module]:
-                    print(f"object.__subclasses__()[{i}].__init__.__globals__['{risk_module}'].__dict__['{method}']")
+                    #print(f"object.__subclasses__()[{i}].__init__.__globals__['{risk_module}'].__dict__['{method}']")
+                    print("object.__subclasses__()[{i}].__init__.__globals__['{risk_module}'].__dict__['{method}']".format(i=i, risk_module=risk_module, method=method))
