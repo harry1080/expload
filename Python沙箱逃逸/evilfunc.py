@@ -18,7 +18,7 @@ modules3 = [
 ]
 
 # 危险模块
-methods = ['sys', 'os', 'system', 'subprocess', 'platform', 'commands', 'timeit', 'importlib', 'pickle', 'pty', '__builtins__', '__import__', 'file', 'linecache', 'types']
+methods = ['sys', 'os', 'system', 'popen', 'subprocess', 'platform', 'commands', 'timeit', 'importlib', 'pickle', 'pty', '__builtins__', '__import__', 'import_module', 'eval', 'exec', 'spawn', 'file', 'linecache', 'types']
 
 # object的派生类
 subclasses = {}
