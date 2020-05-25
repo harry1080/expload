@@ -66,7 +66,7 @@ if __name__ == "__main__":
     # test_string = string.printable
     flag = ""
 
-    # flag位数
+    # 30张牌你能秒我？
     for guess in range(30):
         tmp_flag = exploit()
         flag += tmp_flag
