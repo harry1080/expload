@@ -12,10 +12,10 @@ def parseURL(url):
     hostname = _.hostname
     port = _.port
 
-    if (not port):
-        if (scheme == 'http'):
+    if not port:
+        if scheme == 'http':
             port = 80
-        elif (scheme == 'https'):
+        elif scheme == 'https':
             port = 443
         else:
             port = 7001

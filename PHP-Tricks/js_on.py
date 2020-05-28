@@ -43,8 +43,8 @@ def exploit(guess, median):
     result = requests.get(url, headers=http_headers)
 
     # 判断
-    # if (result.status_code == 500):
-    if ('Fatal error' in result.text):
+    # if result.status_code == 500:
+    if 'Fatal error' in result.text:
         return True
     else:
         return False

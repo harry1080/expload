@@ -47,7 +47,7 @@ for i, submodules in subclasses.items():
 print('------------------------------ 缓冲区 ------------------------------')
 
 # 判断Python版本
-if (sys.version_info[0]) == 3:
+if sys.version_info[0] == 3:
     modules = modules3
 else:
     modules = modules2
